@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin:0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    background: linear-gradient(180deg, #1a3878 0%, #386cc0 30%, #2b5db9 100%);
+    color: var(--text);
+}

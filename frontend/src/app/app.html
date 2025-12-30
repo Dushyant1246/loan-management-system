@@ -1,0 +1,294 @@
+
+  
+
+
+
+
+  <!-- MAIN -->
+  <main class="container" role="main">
+  <!-- HEADER -->
+    <app-header></app-header>
+    <!-- Welcome -->
+    <section class="welcome" aria-label="Welcome">
+      <div>
+        <span class="muted" id="today-date"></span>
+        <h1>Welcome back, Dushyant!</h1>
+        <div class="muted">Here’s a snapshot of your loan portfolio and today’s priorities.</div>
+      </div>
+      <div>
+        <button class="btn" aria-label="Add Customer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="#cfe0ff" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="12" cy="7" r="4" stroke="#cfe0ff" stroke-width="1.6"/>
+          </svg>
+          <span>Add Customer</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="kpis" aria-label="Key Metrics">
+      <article class="card" aria-live="polite">
+        <h3>Active Loans</h3>
+        <div class="metric">
+          <div class="value" aria-label="Total Active Loans">124</div>
+          <span class="chip green">+4 this week</span>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Pending Approvals</h3>
+        <div class="metric">
+          <div class="value">12</div>
+          <span class="chip amber">Avg SLA: 8h</span>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Overdue Loans</h3>
+        <div class="metric">
+          <div class="value">8</div>
+          <span class="chip red">Requires action</span>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Total Collection Today</h3>
+        <div class="metric">
+          <div class="value">₹1,20,000</div>
+          <span class="chip">PAR 30: 3.2%</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Charts + Right Column -->
+    <section class="grid" aria-label="Insights and Pipeline">
+      <!-- Left: Disbursement Trend -->
+      <article class="card">
+        <header>
+          <h3>Loan Disbursement — Last 12 Months</h3>
+          <div class="legend">
+            <span class="dot blue"></span> Disbursed
+          </div>
+        </header>
+        <div class="chart" role="img" aria-label="Line chart of monthly disbursements">
+          <!-- Inline responsive SVG line chart -->
+          <svg viewBox="0 0 600 220" width="100%" height="100%" preserveAspectRatio="none">
+            <!-- grid -->
+            <g opacity="0.25" stroke="rgba(255,255,255,0.15)" stroke-width="1">
+              <line x1="40" y1="180" x2="580" y2="180"/>
+              <line x1="40" y1="140" x2="580" y2="140"/>
+              <line x1="40" y1="100" x2="580" y2="100"/>
+              <line x1="40" y1="60"  x2="580" y2="60"/>
+            </g>
+            <!-- axes -->
+            <g stroke="rgba(255,255,255,0.35)" stroke-width="1">
+              <line x1="40" y1="20" x2="40" y2="180"/>
+              <line x1="40" y1="180" x2="580" y2="180"/>
+            </g>
+            <!-- labels -->
+            <g fill="#9bb1d0" font-size="11">
+              <text x="30" y="184">0</text>
+              <text x="20" y="144">50</text>
+              <text x="15" y="104">100</text>
+              <text x="15" y="64">150</text>
+            </g>
+            <!-- line -->
+            <polyline fill="none" stroke="#2d7ef7" stroke-width="3"
+              points="
+                40,160  90,150  140,120  190,130
+                240,110 290,90  340,100  390,80
+                440,85  490,70  540,75  580,60
+              "/>
+            <!-- gradient fill under line -->
+            <defs>
+              <linearGradient id="fillBlue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2d7ef7" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#2d7ef7" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <polygon fill="url(#fillBlue)" opacity="0.6"
+              points="
+                40,160  90,150  140,120  190,130
+                240,110 290,90  340,100  390,80
+                440,85  490,70  540,75  580,60
+                580,180 40,180
+              "/>
+            <!-- month labels -->
+            <g fill="#9bb1d0" font-size="10">
+              <text x="70"  y="200">Jan</text>
+              <text x="120" y="200">Feb</text>
+              <text x="170" y="200">Mar</text>
+              <text x="220" y="200">Apr</text>
+              <text x="270" y="200">May</text>
+              <text x="320" y="200">Jun</text>
+              <text x="370" y="200">Jul</text>
+              <text x="420" y="200">Aug</text>
+              <text x="470" y="200">Sep</text>
+              <text x="520" y="200">Oct</text>
+              <text x="560" y="200">Nov</text>
+              <text x="590" y="200">Dec</text>
+            </g>
+          </svg>
+        </div>
+      </article>
+
+      <!-- Right: Portfolio Donut + Upcoming EMIs -->
+      <article class="card">
+        <header>
+          <h3>Portfolio Breakdown</h3>
+          <div class="legend">
+            <span class="dot blue"></span> Personal
+            <span class="dot green"></span> Business
+            <span class="dot red"></span> Mortgage
+          </div>
+        </header>
+
+        <!-- Donut chart using SVG strokes -->
+        <div class="chart" aria-label="Donut chart portfolio breakdown">
+          <svg viewBox="0 0 120 120" width="140" height="140" aria-hidden="true">
+            <!-- background ring -->
+            <circle cx="60" cy="60" r="42" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="16"/>
+            <!-- segments: total circumference ≈ 2πr ≈ 263.9 -->
+            <!-- Personal 45% -->
+            <circle cx="60" cy="60" r="42" fill="none" stroke="#2d7ef7" stroke-width="16"
+              stroke-dasharray="118.8 263.9" stroke-dashoffset="0" stroke-linecap="butt"/>
+            <!-- Business 35% -->
+            <circle cx="60" cy="60" r="42" fill="none" stroke="#2dbf7a" stroke-width="16"
+              stroke-dasharray="92.4 263.9" stroke-dashoffset="-118.8" />
+            <!-- Mortgage 20% -->
+            <circle cx="60" cy="60" r="42" fill="none" stroke="#f55252" stroke-width="16"
+              stroke-dasharray="52.8 263.9" stroke-dashoffset="-211.2" />
+            <!-- hole -->
+            <circle cx="60" cy="60" r="30" fill="#10192c"/>
+            <text x="60" y="64" text-anchor="middle" font-size="10" fill="#cfe0ff">100%</text>
+          </svg>
+        </div>
+
+        <div class="muted" style="text-align:center; margin-top:.25rem;">Personal 45% · Business 35% · Mortgage 20%</div>
+      </article>
+    </section>
+
+    <!-- Tables -->
+    <section class="grid" aria-label="Operational Lists">
+      <article class="card">
+        <header>
+          <h3>Latest Loan Applications</h3>
+          <div class="legend muted">Last {{customerData.length}} items</div>
+        </header>
+        <table aria-describedby="Latest loan applications table">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>DOB</th>
+              <th>KYC Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (customerD of customerData; track customerD.id) {
+              <tr app-customer
+                [customer]="customerD"
+              ></tr>
+            }
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card">
+        <header>
+          <h3>Upcoming EMIs (Next 7 Days)</h3>
+          <div class="legend muted">Auto-sorted by due date</div>
+        </header>
+        <table aria-describedby="Upcoming EMIs table">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Due Date</th>
+              <th>Amount</th>
+              <th>Loan #</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rajesh Kumar</td><td>25 Dec 2025</td><td>₹12,500</td><td>L-00982</td>
+              <td><button class="btn">Record Payment</button></td>
+            </tr>
+            <tr>
+              <td>Anita Rao</td><td>26 Dec 2025</td><td>₹28,900</td><td>L-00431</td>
+              <td><button class="btn">Record Payment</button></td>
+            </tr>
+            <tr>
+              <td>Meera Patel</td><td>27 Dec 2025</td><td>₹19,200</td><td>L-01217</td>
+              <td><button class="btn">Record Payment</button></td>
+            </tr>
+            <tr>
+              <td>John Doe</td><td>28 Dec 2025</td><td>₹8,700</td><td>L-00256</td>
+              <td><button class="btn">Record Payment</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    <section class="grid" aria-label="Collections and Payments">
+      <article class="card">
+        <header>
+          <h3>Recent Payments</h3>
+          <div class="legend muted">Today & Yesterday</div>
+        </header>
+        <table aria-describedby="Recent payments table">
+          <thead>
+            <tr>
+              <th>Receipt #</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>R-10455</td><td>Meera Patel</td><td>₹25,000</td><td>UPI</td><td>Today 10:12</td>
+            </tr>
+            <tr>
+              <td>R-10454</td><td>John Doe</td><td>₹8,700</td><td>Card</td><td>Today 09:30</td>
+            </tr>
+            <tr>
+              <td>R-10453</td><td>Rajesh Kumar</td><td>₹12,500</td><td>NEFT</td><td>Yesterday 16:05</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card">
+        <header>
+          <h3>Quick Actions</h3>
+          <div class="legend muted">Frequently used</div>
+        </header>
+        <div style="display:grid; grid-template-columns: 1fr; gap:.5rem; margin-top:.5rem;">
+          <button class="btn btn-primary">Issue New Loan</button>
+          <button class="btn">Add Customer</button>
+          <button class="btn">Record Payment</button>
+          <button class="btn">Export Report</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div>LMS v3.2 · Need help? <a href="#" style></a></div>
+    <div>© 2025 Loan Management System</div>
+  </footer>
+
+  <script>
+    // Set localized date in header
+    (function(){
+      const el = document.getElementById('today-date');
+      try{
+        const now = new Date();
+        const opts = { weekday:'short', year:'numeric', month:'short', day:'numeric' };
+        el.textContent = now.toLocaleDateString(undefined, opts);
+      }catch(e){ el.textContent = ''; }
+    })();
+  </script>
+

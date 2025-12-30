@@ -1,0 +1,44 @@
+<header class="app-header" role="banner" (load)="onClick()">
+    <div class="header-inner" aria-label="Top Navigation">
+        <div class="brand" aria-label="Loan Management System">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div>LMS Dashboard</div>
+        </div>
+        <nav class="primary" role="navigation" aria-label="Primary">
+        <a class="active">Dashboard</a>
+        <a>Loans</a>
+        <a>Customers</a>
+        <a>Payments</a>
+        <a>Reports</a>
+        <a>Settings</a>
+        </nav>
+        <div class="header-actions">
+        <button class="btn btn-primary" aria-label="Create New Loan">
+            <!-- plus icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="label">New Loan</span>
+        </button>
+        <button class="btn" aria-label="Notifications">
+            <!-- bell -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0a3 3 0 1 1-6 0" stroke="#cfe0ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <div class="avatar" title="Dushyant">DD</div>
+        </div>
+    </div>
+</header>
+
+<script>
+// Set localized date in header
+(function(){
+    const el = document.getElementById('today-date');
+    try{
+    const now = new Date();
+    const opts = { weekday:'short', year:'numeric', month:'short', day:'numeric' };
+    el.textContent = now.toLocaleDateString(undefined, opts);
+    }catch(e){ el.textContent = ''; }
+})();
+</script>
