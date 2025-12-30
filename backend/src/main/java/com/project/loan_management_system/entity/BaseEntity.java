@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.type.SqlTypes;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -18,6 +20,8 @@ public abstract class BaseEntity {
     @Id
     @GeneratedValue
     @UuidGenerator
+    @JdbcTypeCode(SqlTypes.CHAR)
+    @Column(length = 36)
     private UUID id;
 
     @CreationTimestamp

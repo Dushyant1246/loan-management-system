@@ -1,4 +1,9 @@
 spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
   application:
     name: loan-management-system
   datasource:
@@ -8,3 +13,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 server:
   port: 8080
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
