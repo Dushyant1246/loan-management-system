@@ -1,5 +1,6 @@
 package com.project.loan_management_system.entity;
 
+import com.project.loan_management_system.entity.enums.LoanApplicationStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +30,8 @@ public class LoanApplication extends BaseEntity {
     private BigDecimal proposedRate;
 
     @Column(length = 20, nullable = false)
-    private String status = "submitted"; // submitted, under_review, approved, rejected
+    @Enumerated(EnumType.STRING)
+    private LoanApplicationStatus status =  LoanApplicationStatus.SUBMITTED;
 
     @Column(columnDefinition = "TEXT")
     private String decisionNotes;

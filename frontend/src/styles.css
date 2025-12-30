@@ -5,3 +5,14 @@ body{
     background: linear-gradient(180deg, #1a3878 0%, #386cc0 30%, #2b5db9 100%);
     color: var(--text);
 }
+.btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.55rem .8rem; border-radius:10px; border:1px solid rgba(255,255,255,.12);
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    color: var(--text); cursor:pointer;
+  }
+.btn-primary{
+    border: none;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-600) 100%);
+    box-shadow: 0 8px 20px rgba(45,126,247,.35);
+}

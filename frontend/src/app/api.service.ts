@@ -11,8 +11,12 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getCustomers(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/customers`);
+  getLoanApplications(size: number = 5, page: number = 0): Observable<any> {
+    return this.http.get(`${this.baseUrl}/loan-application/page?size=${size}&page=${page}&sort=submittedAt,desc`);
+  }
+
+  getCustomer(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/customers/${id}`)
   }
 
 }

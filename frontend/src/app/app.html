@@ -171,22 +171,23 @@
       <article class="card">
         <header>
           <h3>Latest Loan Applications</h3>
-          <div class="legend muted">Last {{customerData.length}} items</div>
+          <div class="legend muted">Last {{loanApplicationData.length}} items</div>
         </header>
         <table aria-describedby="Latest loan applications table">
           <thead>
             <tr>
               <th>Customer</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>DOB</th>
-              <th>KYC Status</th>
+              <th>Requested Amount</th>
+              <th>Proposed Rate</th>
+              <th>Status</th>
+              <th>Submitted At</th>
+              <th>Decision Notes</th>
             </tr>
           </thead>
           <tbody>
-            @for (customerD of customerData; track customerD.id) {
-              <tr app-customer
-                [customer]="customerD"
+            @for (loanApplication of loanApplicationData; track loanApplication.id) {
+              <tr app-loan-application
+                [loan_application]="loanApplication"
               ></tr>
             }
           </tbody>

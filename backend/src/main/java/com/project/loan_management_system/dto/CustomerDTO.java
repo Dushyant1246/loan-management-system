@@ -23,5 +23,7 @@ public class CustomerDTO {
 
     private LocalDate dob;
 
-    private KycStatus kycStatus = KycStatus.PENDING;
+    private KycStatus kycStatus;
+
+    private LocalDate createdAt;
 }
